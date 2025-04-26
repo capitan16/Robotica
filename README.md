@@ -244,7 +244,7 @@ Un paso intermedio es verificar si este (goal_x, goal_y) calculado está dentro 
 
  La lista ```absolute_goals``` está completa y lista para ser pasada (elemento por elemento) a la lógica de control de movimiento (move_to_goal). 
 
-Para ilustrarlo de manera más clara, utilizamos MATLAB, extrayendo varias de las funciones clave del proceso y encapsulándolas en un script que muestra la parte esencial que ya describimos.
+Para ilustrarlo de forma más clara, utilizamos MATLAB y extraímos varias de las funciones clave del proceso de generación de la trayectoria, encapsulándolas en un script que muestra únicamente la parte esencial previamente descrita.
 
 En este ejemplo dibujaremos las letras asumiendo que la tortuga se encuentra en la posición x=2x=2, y=3y=3, orientada a 45 grados y utilizando una escala de 1.5, cada vez que se presione la tecla correspondiente.
 
@@ -266,7 +266,12 @@ Ahora Por ejemplo Probemos la letra C que es curva:
 
 Ahora veamos a $\pi/2$
 
+
 ![LetraC](img/LetraC90.png)
+
+
+[LetraC.webm](https://github.com/user-attachments/assets/5e6b93f1-5d03-4309-b66e-a244579ccc4a)
+
 
 Tenemos la letra O :
 
