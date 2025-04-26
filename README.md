@@ -282,6 +282,9 @@ Orientada A 90 grados:
 ![LetraC](img/LetraD90.png)
 
 
+
+[letraA.webm](https://github.com/user-attachments/assets/5c13d559-0e8f-428c-8780-b4e975497edf)
+
 ## 📌 Notas y Consejos
 
 - **Enfoque de la terminal**: Asegúrate de estar en la terminal desde la cual se lanzó el nodo para poder ejecutar sus funciones correctamente.
