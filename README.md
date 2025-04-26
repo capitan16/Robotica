@@ -250,6 +250,8 @@ En este ejemplo dibujaremos las letras asumiendo que la tortuga se encuentra en 
 
 ```Letra A:```
 ![LetraA](img/LetraA.png)
+
+
 [LetraA_r_45.webm](https://github.com/user-attachments/assets/bc5d2df5-a225-4462-81d3-45f9fbeaff7e)
 
 Ahora el angulo va hacer -$\pi$
