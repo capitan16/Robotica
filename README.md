@@ -223,7 +223,7 @@ Esto permite seleccionar fácilmente la "plantilla" correcta cuando el usuario p
 
  Disparador: El keyboard_loop detecta una tecla válida (ej: 'm'), busca la lista de vectores relativos correspondiente en `shape_bindings`, y lanza un hilo (thread) para ejecutar `execute_trajectory` pasándole esa lista.
 
-ALgo crucial dentro de execute_trajectory es obtener la pose actual del robot **(posición y orientación)** en el momento en que se inicia el dibujo. 
+Algo crucial dentro de execute_trajectory es obtener la pose actual del robot **(posición y orientación)** en el momento en que se inicia el dibujo. 
 
 ```python
 start_pose = self.get_current_pose_safe()
@@ -250,6 +250,7 @@ En este ejemplo dibujaremos las letras asumiendo que la tortuga se encuentra en 
 
 ```Letra A:```
 ![LetraA](img/LetraA.png)
+[LetraA_r_45.webm](https://github.com/user-attachments/assets/bc5d2df5-a225-4462-81d3-45f9fbeaff7e)
 
 Ahora el angulo va hacer -$\pi$
 
@@ -283,7 +284,7 @@ Orientada A 90 grados:
 
 
 
-[letraA.webm](https://github.com/user-attachments/assets/5c13d559-0e8f-428c-8780-b4e975497edf)
+
 
 ## 📌 Notas y Consejos
 
