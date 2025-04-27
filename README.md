@@ -268,7 +268,7 @@ Letra M a $\pi/2$
 
 Letra L
 
-![LetraL](img/LetraL.png)
+![LetraL](img/LetraL1.png)
 
 [LetraL.webm](https://github.com/user-attachments/assets/8d5a4803-6c48-405c-8f46-beeb63200227)
 
