@@ -316,6 +316,114 @@ Orientada a 90 grados:
 [LetraD.webm](https://github.com/user-attachments/assets/12e7ac4f-bc0f-47b7-9ec5-257cdd2085f0)
 
 
+## Diagramas de clases y de flujo 
+
+```mermaid
+classDiagram
+    %% Clases externas de ROS
+    class Node 
+    class Twist 
+    class Pose 
+
+    %% Generador de formas básicas
+    class ShapeGenerator {
+      +static rotate_point(point, angle): (float, float)
+      +generate_arc_segments(radius, start_angle, end_angle, num_segments): List
+      +rotate_shape(points, angle): List
+    }
+
+    %% Definición de las formas de cada letra
+    class LetterShapes {
+      +m: List
+      +a: List
+      +l: List
+      +o: List
+      +c: List
+      +d: List
+      +s: List
+      +shapes: Map
+      +__init__(base_scale=1.5, num_arc_full=32, num_arc_part=24)
+    }
+
+    %% Nodo principal de control de teclado
+    class KeyboardControllerNode {
+      -settings
+      -cmd_pub: Publisher
+      -pose_sub: Subscription
+      -current_pose: Pose
+      -pose_lock: Lock
+      -speed: float
+      -turn: float
+      -manual_x: float
+      -manual_th: float
+      -drawing: bool
+      -interrupt: bool
+      -thread: Thread
+      -shape_bindings: Map
+      -key_thread: Thread
+      +__init__(settings)
+      +pose_cb(msg: Pose)
+      +wait_for_pose()
+      +publish(lin, ang)
+      +keyboard_loop()
+      +execute_trajectory(rel_points)
+      +move_to_goal(gx, gy): bool
+      +destroy()
+    }
+
+    %% Relaciones
+    KeyboardControllerNode --|> Node
+    KeyboardControllerNode ..> Twist
+    KeyboardControllerNode ..> Pose
+    KeyboardControllerNode ..> LetterShapes
+    KeyboardControllerNode ..> ShapeGenerator
+    LetterShapes ..> ShapeGenerator
+```
+
+```mermaid
+flowchart TD
+    %% Inicio del programa
+    Start([Start]) --> Init[Initialize ROS & Node]
+    Init --> WaitPose[wait_for_pose]
+    WaitPose --> PrintHelp[Print speeds & help message]
+    PrintHelp --> KeyboardLoop[Launch keyboard loop]
+
+    %% Bucle principal de teclado
+    subgraph MainLoop [Keyboard Loop]
+      KeyboardLoop --> KeyCheck{Key press?}
+      KeyCheck -->|No key| Idle[Check manual_x/manual_th → publish 0]
+      KeyCheck -->|Arrow key| ManualMove[Publish manual velocity]
+      KeyCheck -->|+ or -| AdjustSpeed[Adjust speeds & print]
+      KeyCheck -->|Letter key| DrawStart[Spawn execute_trajectory thread]
+      KeyCheck -->|q| Quit[Break loop]
+      Idle --> KeyboardLoop
+      ManualMove --> KeyboardLoop
+      AdjustSpeed --> KeyboardLoop
+      DrawStart --> KeyboardLoop
+      Quit --> Shutdown[Exit loop]
+    end
+
+    %% Subproceso de dibujo de formas
+    subgraph Drawing [execute_trajectory]
+      DrawStart --> ComputeGoals[Compute absolute goal points]
+      ComputeGoals --> ForEach[For each goal point]
+      ForEach --> MoveToGoal[move_to_goal gx, gy]
+      MoveToGoal --> CheckDone{Reached? or Interrupted?}
+      CheckDone -->|Yes & more pts| ForEach
+      CheckDone -->|Interrupted/Fail| Abort[Abort drawing]
+      CheckDone -->|All reached| Complete[Finish drawing]
+      Abort --> EndDraw[Set drawing=false]
+      Complete --> EndDraw
+      EndDraw --> Return[Return to Keyboard Loop]
+    end
+
+    %% Cierre del programa
+    Shutdown --> Cleanup[Destroy node & shutdown ROS]
+    Cleanup --> Restore[Restore terminal settings]
+    Restore --> End([End])
+
+```
+
 
 
 
