@@ -258,6 +258,20 @@ Ahora el angulo va hacer -$\pi$
 
 ![LetraA](img/LetraARotada.png)
 
+Letra M a $\pi/2$
+
+![LetraM](img/LetraM.png)
+
+[LetraM.webm](https://github.com/user-attachments/assets/8a5969aa-182b-4df7-acf8-55fc376a94e3)
+
+
+
+Letra L
+
+![LetraL](img/LetraL.png)
+
+[LetraL.webm](https://github.com/user-attachments/assets/8d5a4803-6c48-405c-8f46-beeb63200227)
+
 
 Ahora Por ejemplo Probemos la letra C que es curva:
 
