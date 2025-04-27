@@ -296,7 +296,9 @@ Tenemos la letra O :
 
 [LetraO.webm](https://github.com/user-attachments/assets/cae7aacd-f550-44ab-9113-e338aa003cb8)
 
-Letra S:
+Asi mismo nos encontramos con la letra S:
+
+![LetraS](img/trayectoriaS.jpg)
 
 [LetraS.webm](https://github.com/user-attachments/assets/34e84d91-3634-4bf3-9b15-934e0f25630e)
 
