@@ -71,6 +71,7 @@ Presiona una de las siguientes teclas para iniciar el trazado de la letra corres
 | `o`   | O     | Dibuja la letra 'O' como un círculo completo.|  
 | `c`   | C     | Dibuja la letra 'C' como un arco mayoritario.|  
 | `d`   | D     | Dibuja la letra 'D' combinando línea vertical y arco.|
+| `s`   | S     | Dibuja la letra 'S' combinando dos arcos.|
 | `q`   | Q     | Salir del programa       |
 
 ---
