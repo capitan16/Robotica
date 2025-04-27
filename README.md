@@ -317,6 +317,16 @@ Orientada a 90 grados:
 
 
 ## Diagramas de clases y de flujo 
+### Descripción del Diagrama de Clases
+
+- **ShapeGenerator**: Métodos estáticos para rotar puntos y generar/rotar arcos.
+- **LetterShapes**: Inicializa vectores relativos de cada letra (M, A, L, O, C, D, S).
+- **KeyboardControllerNode**:  
+  - Publica `Twist` y suscribe `Pose`.  
+  - Captura teclas, ajusta velocidad, mueve manualemente o dibuja formas.
+  - Métodos claves: `keyboard_loop()`, `execute_trajectory()`, `move_to_goal()`.
+
+---
 
 ```mermaid
 classDiagram
@@ -379,6 +389,15 @@ classDiagram
     KeyboardControllerNode ..> ShapeGenerator
     LetterShapes ..> ShapeGenerator
 ```
+
+### Descripción del Diagrama de Flujo
+
+1. **Inicio**: Init ROS, `wait_for_pose()`, mostrar ayuda.  
+2. **Bucle de teclado**: Detecta teclas → mueve, ajusta velocidad, dibuja o sale.  
+3. **Dibujo**:  
+   - Calcula metas desde vectores.  
+   - Para cada meta, ejecuta control proporcional (`move_to_goal`).  
+4. **Cierre**: Destruye nodo, detiene tortuga y restaura terminal.
 
 ```mermaid
 flowchart TD
