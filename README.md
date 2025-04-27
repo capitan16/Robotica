@@ -135,7 +135,7 @@ El proceso se puede dividir en varias etapas clave:
 
 Cada forma se define como una secuencia de movimientos relativos al punto anterior 
 
--**Representación:**Para ello usamos una  lista de tuplas (dx, dy), donde cada tupla representa un segmento de la trayectoria. dx es el cambio en la coordenada X y dy es el cambio en la coordenada Y para ese segmento específico. 
+- **Representación:** Para ello usamos una  lista de tuplas (dx, dy), donde cada tupla representa un segmento de la trayectoria. dx es el cambio en la coordenada X y dy es el cambio en la coordenada Y para ese segmento específico. 
 
 ```python
  # Forma 'A'
