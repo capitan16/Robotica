@@ -276,18 +276,27 @@ Ahora veamos a $\pi/2$
 Tenemos la letra O :
 
 
-![LetraC](img/letroOCero.png)
+
+![LetraO](img/letroOCero.png)
+
+[LetraO.webm](https://github.com/user-attachments/assets/cae7aacd-f550-44ab-9113-e338aa003cb8)
+
+
+
 
 Esta es la idea general del proceso. Finalmente, dibujaremos la letra D, que combina una parte curva y una parte recta. Con estas tres letras ya podríamos cubrir de manera general el abanico de formas presentes en el abecedario.
 
 Orientada a 0 grados
 
-![LetraC](img/LetraDCero.png)
+![LetraD](img/LetraDCero.png)
 
 
-Orientada A 90 grados:
+Orientada a 90 grados:
 
-![LetraC](img/LetraD90.png)
+![LetraD](img/LetraD90.png)
+
+[LetraD.webm](https://github.com/user-attachments/assets/12e7ac4f-bc0f-47b7-9ec5-257cdd2085f0)
+
 
 
 
