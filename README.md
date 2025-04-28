@@ -319,6 +319,31 @@ Orientada a 90 grados:
 [LetraD.webm](https://github.com/user-attachments/assets/12e7ac4f-bc0f-47b7-9ec5-257cdd2085f0)
 
 
+### Seguimiento de la Trayectoria en Este Sistema
+
+El seguimiento de la trayectoria, es decir, cómo la tortuga se mueve físicamente de un punto a otro de la letra, es manejado principalmente por la función `move_to_goal` en combinación con el bucle de ejecución en `execute_trajectory`. Así es como funciona:
+
+1.  **Secuencia de Objetivos**: Primero, execute_trajectory calcula todas las coordenadas absolutas (goal_x, goal_y) que componen la forma, basándose en los vectores relativos y la orientación inicial de la tortuga.
+
+2. **Movimiento Punto a Punto** : Luego, execute_trajectory entra en un bucle que itera sobre esta lista de puntos objetivo. En cada iteración, le pasa el siguiente  (goal_x, goal_y) a la función move_to_goal.
+3. **Control** `move_to_goal`: Esta es la función clave para el movimiento real.  Implementa un controlador proporcional (P) en bucle cerrado.
+
+    - **Retroalimentación** : En cada iteración del bucle, lo primero que hace es obtener la pose actual de la tortuga (current_pose = self.get_current_pose_safe()). Esto es crucial, es la retroalimentación que le dice al sistema dónde está realmente la tortuga.
+    - **Cálculo del Error**: Compara la pose actual con el objetivo deseado:
+        - Calcula el vector directo desde la posición actual hasta el punto deseado.
+        - Determina la distancia restante hasta el goal.
+        - Calcula el ángulo hacia el goal (angle_to_goal) usando math.atan2(dy, dx).
+        - Calcula el error angular (angle_error): la diferencia entre el angle_to_goal y la orientación actual de la tortuga (current_pose.theta). Se normaliza para que esté entre −π y π.
+4. **Ley de Control** : Decide qué velocidad aplicar basándose en el error:
+    - `Velocidad Angular` : Se calcula como angular_vel = KP_ANGULAR * angle_error. Es decir, la velocidad de giro es proporcional a cuánto necesita girar la tortuga. Si el error es grande, gira rápido; si es pequeño, gira despacio. 
+    - `Velocidad Lineal`: Se calcula como linear_vel = KP_LINEAR * distance, pero solo si el error angular es suficientemente pequeño (abs(angle_error) < GOAL_TOLERANCE_ANGLE). Esto significa que la tortuga primero gira para encarar el objetivo y solo entonces avanza. La velocidad de avance es proporcional a la distancia restante. KP_LINEAR es la ganancia proporcional lineal.
+5. **Actuación** : Las velocidades calculadas (linear_vel, angular_vel) se empaquetan en un mensaje Twist y se publican en el tópico /turtle1/cmd_vel usando publish_velocity. El simulador turtlesim recibe este mensaje y mueve la tortuga en consecuencia.
+
+6. **Condición de Salida**: El bucle interno de move_to_goal termina cuando la distance al objetivo es menor que una pequeña tolerancia (GOAL_TOLERANCE_DIST).
+
+7. **Repetición** : Una vez que move_to_goal termina (ha alcanzado un waypoint), el control vuelve al bucle de execute_trajectory, que entonces llama a move_to_goal para el siguiente punto  de la lista, repitiendo el proceso hasta completar la forma.
+
+
 ## Diagramas de clases y de flujo 
 ### Descripción del Diagrama de Clases
 
