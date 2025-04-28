@@ -493,3 +493,20 @@ flowchart TD
 
 Este proyecto está bajo la licencia **MIT**. ¡Siéntete libre de usarlo y adaptarlo!
 
+## Referencias
+
+[1] [Labsir UN - Intro Linux (Repositorio en GitHub)](https://github.com/labsir-un/ROB_Intro_Linux.git)
+
+[2] [Labsir UN - Intro ROS 2 Humble (Repositorio en GitHub)](https://github.com/labsir-un/ROB_Intro_ROS2_Humble.git)
+
+[3] [Labsir UN - Intro Turtlesim (Repositorio en GitHub)](https://github.com/labsir-un/ROB_Intro_ROS2_Humble_Turtlesim.git)
+
+[4] [ROS 2 Humble Installation Guide](https://docs.ros.org/en/humble/Installation.html)
+
+[5] [Introducing Turtlesim - ROS 2 Humble Tutorial](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html)
+
+[6] [Robotics Back-End (2022, 15 agosto) - Intro: Install and Setup ROS2 Humble - ROS2 Tutorial 1 (Vídeo, YouTube)](https://www.youtube.com/watch?v=0aPbWsyENA8)
+
+[7] [Muhammad Luqman (2023, 18 febrero) - Mathematics in Robotics: Go to Goal in ROS2 (Vídeo, YouTube)](https://www.youtube.com/watch?v=SaZz-L3d_AE)
+
+
