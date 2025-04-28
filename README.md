@@ -491,9 +491,9 @@ La implementación de captura de teclado en modo raw, combinada con un hilo dedi
 - **Comunicación basada en mensajes**: El uso de mensajes `Twist` y `Pose` evidenció el poder del sistema de tópicos de ROS 2 para desacoplar interfaces de usuario de la lógica de movimiento.
 - **Herramientas de ROS 2**: La utilización de componentes como `Duration`, `Rate`, `publishers` y `subscribers` permitió la gestión asíncrona, segura y eficiente de la temporización y transmisión de datos.
 
-## ▶️ Video Explicativo
+## 
 
- [Labooratorio 1)](https://github.com/labsir-un/ROB_Intro_Linux.git)
+ [▶️ Video Explicativo Labooratorio 1](https://drive.google.com/file/d/1rYAhyEfyAMSOBiN9o6nIhMIhkdlJyamm/view?usp=sharing)
 
 ## 📌 Notas y Consejos
 
