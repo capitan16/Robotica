@@ -162,7 +162,7 @@ class LetterShapes:
         d_line = (0.0, d_h)
         d_arc = gen.generate_arc_segments(d_r, math.pi/2, -math.pi/2, num_arc_part)
         self.d = gen.rotate_shape([d_line] + d_arc, -math.pi/2)
-        # --- S continua sin convertir a segmentos relativos ---
+        # S 
         s_r = 0.35 * base_scale
         num = num_arc_part
         # 1) Semicírculo superior (joroba derecha): de π a 0
