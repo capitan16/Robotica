@@ -472,7 +472,24 @@ flowchart TD
 ```
 
 
+## Conclusiones
 
+### Importancia de la ley de control proporcional (P)
+A lo largo del proyecto, quedó demostrada la efectividad de un control proporcional puro en la función `move_to_goal()`. Con una única ganancia (KP_LINEAR y KP_ANGULAR), logramos una respuesta inmediata y proporcional al error de posición y orientación. Este enfoque sencillo facilitó tanto la sintonización como la comprensión de la dinámica general: a mayor error, mayor corrección aplicada, siempre dentro de límites establecidos.
+
+### Enfoque “Go-To-Goal” y tolerancias
+Implementamos exitosamente la estrategia “Go-To-Goal”, basada en el cálculo continuo de la distancia y el error angular respecto al objetivo. Definir tolerancias adecuadas (GOAL_TOLERANCE_DIST, GOAL_TOLERANCE_ANGLE) permitió que el robot se detuviera de manera suave al alcanzar la meta, evitando oscilaciones o bucles infinitos en las proximidades del destino.
+
+### Definición de límites y buenas prácticas de seguridad
+El establecimiento de fronteras de operación (TURTLE_MIN_X, TURTLE_MAX_X, etc.) y de límites de velocidad (MAX_LINEAR_SPEED, MAX_ANGULAR_SPEED) fue fundamental para asegurar un comportamiento seguro y estable. Además, la saturación de la señal de control previno aceleraciones excesivas, manteniendo al robot dentro de una dinámica predecible.
+
+### Manejo de entrada en tiempo real y diseño multicadena
+La implementación de captura de teclado en modo raw, combinada con un hilo dedicado, permitió una interacción fluida y continua sin bloquear el ciclo principal de ROS. Esta separación entre la lectura de entrada y la lógica de control garantizó una actualización constante de la pose y un envío de comandos con la cadencia requerida.
+
+### Lecciones de ROS 2 en el proyecto
+- **Modularidad de nodos**: El desarrollo de un nodo especializado (`KeyboardControllerNode`) simplificó la extensión, prueba y mantenimiento del sistema.
+- **Comunicación basada en mensajes**: El uso de mensajes `Twist` y `Pose` evidenció el poder del sistema de tópicos de ROS 2 para desacoplar interfaces de usuario de la lógica de movimiento.
+- **Herramientas de ROS 2**: La utilización de componentes como `Duration`, `Rate`, `publishers` y `subscribers` permitió la gestión asíncrona, segura y eficiente de la temporización y transmisión de datos.
 
 
 ## 📌 Notas y Consejos
